@@ -56,7 +56,7 @@ const $=s=>document.querySelector(s),cv=$('#c'),cx=cv.getContext('2d'),ov=$('#ov
 let W,H,D;function rs(){D=Math.min(devicePixelRatio||1,2);W=innerWidth;H=innerHeight;cv.width=W*D;cv.height=H*D;cx.setTransform(D,0,0,D,0,0)}
 addEventListener('resize',rs);rs();
 const clamp=(v,a,b)=>Math.max(a,Math.min(b,v)),now=()=>performance.now();
-const HP=250,ST=130;let prevS=null,pus=[],puUsed=false,puClaims=new Set(),spN=0,spNext=0,oppHealUntil=0,isHost=false;
+const HP=300,ST=130;let prevS=null,pus=[],puUsed=false,puClaims=new Set(),spN=0,spNext=0,oppHealUntil=0,isHost=false;
 let phase='menu',mode='',round=0,net=null,myId=null,oppId=null,oppRdy=0,cdEnd=0,fightT=0,botNext=0;
 let me,opp,marks,pops,rings,fades,flash,shake,stats,last,ptr=null,ghost={m:100,o:100};
 function reset(){prevS=null;pus=[];puUsed=false;puClaims=new Set();spN=0;spNext=0;me={hp:HP,st:ST,guard:false,gT:0,gx:0,gy:0,ex:false,last:0,rdy:0};opp={hp:HP};marks=[];pops=[];rings=[];fades=[];flash=0;shake=0;stats={dealt:0,n:0};last=null;ptr=null;ghost={m:HP,o:HP}}
@@ -187,7 +187,7 @@ ov.innerHTML=`<h1 style="font-size:26px">How to play</h1><div style="max-width:3
 +sec('STAMINA','It refills when you rest. At zero you are exhausted and cannot act until it recovers. A broken guard exhausts you too.')
 +sec('GREEN LIFE','When either fighter falls to a quarter of their health, a green life emblem appears for both players, once per round. The first to tap it restores 30% of the health they have lost and 50% of their stamina.')
 +sec('BLUE FLAME','A blue flame appears up to three times each round, and fades after a few seconds. The first to tap it restores 70% of their stamina.')
-+sec('WIN','Take your opponent from 250 health to zero. Duels are best of 3 rounds. Practice has three levels: Amateur, Sensei and Elite.')
++sec('WIN','Take your opponent from 300 health to zero. Duels are best of 3 rounds. Practice has three levels: Amateur, Sensei and Elite.')
 +`<h1 style="font-size:18px;margin:12px 0 2px">Combos</h1><p style="text-transform:none;letter-spacing:.02em;font-size:12px;margin:0">Draw a shape for bonus damage. Stamina cost stays the same.</p>`
 +row(ic('<path d="M8 8L32 32M32 8L8 32"/>'),'X','×1.5','Slash twice, crossing the first stroke within one second. The second hit gets the bonus.')
 +row(ic('<circle cx="20" cy="20" r="12"/>'),'O','×1.4','Draw a circle in one stroke and close the loop.')
